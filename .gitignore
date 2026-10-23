@@ -31,3 +31,27 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+# ===== Wails =====
+frontend/wailsjs/
+frontend/dist/
+frontend/node_modules/
+build/
+!build/appicon.png
+!build/windows/
+
+# ===== Arduino =====
+*.hex
+*.elf
+*.bin
+*.map
+*.eep
+*.o
+.arduino15/
+.platformio/
+.pio/
+*.bak
+*.tmp
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
