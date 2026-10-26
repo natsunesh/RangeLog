@@ -9,6 +9,6 @@ import { Call as $Call, CancellablePromise as $CancellablePromise } from "@wails
 // @ts-ignore: Unused imports
 import * as $models from "./models.js";
 
-export function GetMeasurements(): $CancellablePromise<$models.SQLite[] | null> {
-    return $Call.ByID(2282514504);
+export function GetRangeLog(): $CancellablePromise<$models.SQLite[] | null> {
+    return $Call.ByID(2016024816);
 }

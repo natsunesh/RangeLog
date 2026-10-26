@@ -32,6 +32,13 @@ func init() {
 func main() {
 
 	services.InitDB()
+	err := services.ConnectBluetooth()
+	if err != nil {
+		log.Println("Предупреждение:", err) // Просто пишем в консоль, что порт не найден
+	} else {
+		log.Println("Успешно подключено к HC-05!")
+	}
+	services.StartSimulator()
 	// Create a new Wails application by providing the necessary options.
 	// Variables 'Name' and 'Description' are for application metadata.
 	// 'Assets' configures the asset server with the 'FS' variable pointing to the frontend files.
@@ -41,7 +48,6 @@ func main() {
 		Name:        "RangeLog",
 		Description: "A demo of using raw HTML & CSS",
 		Services: []application.Service{
-			application.NewService(&GreetService{}),
 			application.NewService(&services.DatabaseService{}),
 		},
 		Assets: application.AssetOptions{
@@ -82,7 +88,7 @@ func main() {
 	}()
 
 	// Run the application. This blocks until the application has been exited.
-	err := app.Run()
+	err = app.Run()
 
 	// If an error occurred while running the application, log it and exit.
 	if err != nil {
